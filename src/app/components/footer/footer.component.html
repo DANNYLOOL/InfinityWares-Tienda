@@ -1,0 +1,52 @@
+<!-- Footer -->
+<footer class="ps-footer--2 ps-footer--fullwidth">
+    <div class="container">
+        <div class="ps-footer__content">
+            <div class="row justify-content-center"> <!-- Añade la clase justify-content-center para centrar las columnas horizontalmente -->
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6">
+                    <aside class="widget widget_footer widget_align-right">
+                        <h3 class="widget-title">{{ 'footer.item_uno' | translate }}</h3>
+                        <ul class="ps-list--line">
+                            <li><a  class="text-white" style="cursor: pointer;" [routerLink]="['/terminos-condiciones']">{{ 'footer.item_tres' | translate }}</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6">
+                    <aside class="widget widget_footer widget_align-right">
+                        <h3 class="widget-title">{{ 'footer.item_siete' | translate }}</h3>
+                        <ul class="ps-list--line">
+                            <li *ngFor="let item of categorias">
+                                <a style="cursor: pointer;" class="text-white" [routerLink]="['/productos/categoria/'+item.slug]">{{item.titulo}}</a>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+                
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6">
+                    <aside class="widget widget_footer widget_align-right">
+                        <h3 class="widget-title">{{ 'footer.item_nueve' | translate }}</h3>
+                        <h5>
+                            <ng-container *ngIf="currency != 'PEN'">
+                                MXN
+                            </ng-container>
+                        </h5>
+                       
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ps-footer__bottom">
+        <div class="container">
+            <div class="row justify-content-end">
+                <a href="https://www.facebook.com/profile.php?id=61561169150403&mibextid=ZbWKwL" target="_blank" style="margin-right: 20px;">
+                    <i class="fa fa-facebook" style="font-size: 30px;"></i>
+                </a>
+                <a href="https://www.instagram.com/infinitywares1?igsh=MXJxMGwwYXQ4bjZmNw==" target="_blank">
+                    <i class="fa fa-instagram" style="font-size: 30px;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+  </footer>
+  

@@ -1,0 +1,78 @@
+<app-nav></app-nav>
+
+
+<div class="ps-page--default">
+  <div class="container">
+    <div class="ps-page__header">
+      <h3>Mi cuenta</h3>
+      <ul class="ps-breadcrumb">
+        <li><a style="cursor:pointer" [routerLink]="['/']">Tienda</a></li>
+        <li class="active"><a>Mi cuenta</a></li>
+      </ul>
+    </div>
+    <div class="ps-page__content">
+      <div class="ps-tab-root">
+        <div class="ps-form--auth">
+          <ul class="ps-tab-list">
+            <li [ngClass]="{'active': op == 1}" (click)="changeOp(1)"><a>Iniciar sesión</a></li>
+            <li [ngClass]="{'active': op == 2}" (click)="changeOp(2)"><a>Registrate</a></li>
+          </ul>
+          <div class="ps-tabs">
+            <div class="ps-tab" [ngClass]="{'active': op == 1}">
+              <form class="ps-form--auth" #loginForm="ngForm" (ngSubmit)="func_login(loginForm)">
+                <div class="form-group">
+                  <input class="form-control" type="email" placeholder="Correo Electrónico" required="" name="email"
+                    [(ngModel)]="user.email">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="password" placeholder="Tu contraseña" required="" name="password"
+                    [(ngModel)]="user.password">
+                </div>
+                <p class="text-center"><a class="green-underline" [routerLink]="['/login/recuperar-pass']">¿Has olvidado la contraseña?</a></p>
+
+                <div class="form-group submit">
+                  <button type="submit" class="ps-btn ps-btn--fullwidth ps-btn--black">Ingresar</button>
+                </div>
+              </form>
+
+            </div>
+            <div class="ps-tab" [ngClass]="{'active': op == 2}">
+              <form [formGroup]="registroForm" (ngSubmit)="registro()">
+                <div class="form-group">
+                  <input class="form-control" type="text" placeholder="Nombres" formControlName="nombres" autocomplete="new-name">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="text" placeholder="Apellidos" formControlName="apellidos" autocomplete="new-surname">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="email" placeholder="Correo Electrónico" formControlName="email" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="password" placeholder="Contraseña" formControlName="password" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="number" placeholder="Teléfono" formControlName="telefono" autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="date" formControlName="f_nacimiento" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <ngx-recaptcha2 #captchaElem [siteKey]="siteKey" formControlName="recaptcha"></ngx-recaptcha2>
+                </div>
+                <div class="ps-form__desc">
+                  <p>Sus datos personales se utilizarán para respaldar su experiencia en este sitio web, para administrar el acceso a su cuenta y para otros fines descritos en nuestra <a [routerLink]="['/terminos-condiciones']" routerLinkActive="router-link-active"><b>política de privacidad</b></a>.</p>
+                </div>
+                <div class="form-group submit">
+                  <button class="ps-btn ps-btn--fullwidth ps-btn--black" type="submit">Registrarme</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

@@ -1,0 +1,33 @@
+[
+    {
+        "titulo":"Polos",
+        "slug":"polos",
+        "_id": "1000"
+    },
+    {
+        "titulo":"Poleras",
+        "slug":"poleras",
+        "_id": "1001"
+    },
+    {
+        "titulo":"Shorts",
+        "slug":"shorts",
+        "_id": "1005"
+    },
+    {
+        "titulo":"Camisas",
+        "slug":"camisas",
+        "_id": "1002"
+    },
+    {
+        "titulo":"Casacas",
+        "slug":"casacas",
+        "_id": "1006"
+    },
+    {
+        "titulo":"Accesorios",
+        "slug":"camisas",
+        "_id": "1003"
+    }
+    
+]

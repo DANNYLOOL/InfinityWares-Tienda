@@ -1,0 +1,38 @@
+<app-nav></app-nav>
+
+<div class="ps-page--default">
+    <div class="container">
+        <div class="ps-page__header">
+            <h3>Recuperación de Contraseña</h3>
+            <ul class="ps-breadcrumb">
+                <li><a style="cursor:pointer" [routerLink]="['/']">Tienda</a></li>
+                <li><a style="cursor:pointer" [routerLink]="['/login']">Mi cuenta</a></li>
+                <li class="active"><a>Recuperación de Contraseña</a></li>
+            </ul>
+        </div>
+        <div class="ps-page__content">
+            <div class="ps-tab-root">
+                <div class="ps-form--auth">
+                    <div class="ps-tabs">
+                        <div class="ps-tab active">
+                            <form class="ps-form--auth" [formGroup]="emailForm" (ngSubmit)="recuperarPass()">
+                                <div class="form-group">
+                                    <input class="form-control" type="email" placeholder="Correo Eléctronico"
+                                        formControlName="email" required>
+                                </div>
+                                <div class="ps-form__desc">
+                                    <p>Ingrese su correo electrónico para enviarle una nueva contraseña temporal.</p>
+                                </div>
+                                <div class="form-group submit">
+                                    <button type="submit" class="ps-btn ps-btn--fullwidth ps-btn--black">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
