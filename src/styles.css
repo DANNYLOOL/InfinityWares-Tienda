@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+.noUi-connect {
+    background: #127c5f !important;
+}
+
+.menu>li>a {
+    text-transform: initial !important;
+
+}
+
+.page-item.active .page-link {
+    background-color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+.ps-product--detail .ps-product__sharing a:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+
+}
+
+input.radiocls[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #127c5f;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+}
+
+@media (min-width: 1440px) {
+    .header {
+        padding: 10px 60px;
+    }
+}
