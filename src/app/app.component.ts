@@ -10,14 +10,13 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent {
   title = 'tienda';
-  public geo = localStorage.getItem('geo');
   private tokenCheckInterval: any;
   private subscriptions: Subscription[] = [];
   
   ngOnInit(): void {
     this.checkToken();
     // Establecer intervalo para verificar el token cada cierto tiempo (ej. cada minuto)
-    this.tokenCheckInterval = setInterval(() => this.checkToken(), 60100); // 60,000 ms = 1 minuto
+    this.tokenCheckInterval = setInterval(() => this.checkToken(), 1000); // 60,000 ms = 1 minuto
   }
 
   ngOnDestroy(): void {
@@ -33,19 +32,6 @@ export class AppComponent {
     private _guestService:GuestService,
     private _router:Router
   ){
-    if(this.geo == null){
-      this._guestService.obtener_ip_cliente().subscribe(
-        response=>{
-          this._guestService.obtener_data_cliente(response.ip).subscribe(
-            response=>{
-              localStorage.setItem('geo',JSON.stringify(response));
-              window.location.reload();
-              
-            }
-          );
-        }
-      );
-    }
   }
 
   checkToken(): void {
@@ -60,9 +46,6 @@ export class AppComponent {
           localStorage.removeItem('_id');
           localStorage.removeItem('user');
           this._router.navigate(['/login']);
-          setTimeout(() => {
-            window.location.reload();
-          }, 500);
         }
       );
       this.subscriptions.push(sub);

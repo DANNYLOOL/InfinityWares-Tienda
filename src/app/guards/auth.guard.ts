@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
     let access:any = this._guestService.isAuthenticate();
 
     if(!access){
-      this._router.navigate(['/']);
+      this._router.navigate(['/login']);
     }
     return true;
   }

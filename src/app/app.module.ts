@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,15 +17,9 @@ import { HttpClient } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { CuentaComponent } from './components/perfil/cuenta/cuenta.component';
-import { DireccionesComponent } from './components/perfil/direcciones/direcciones.component';
 import { IndexProductoComponent } from './components/productos/index-producto/index-producto.component';
-import { EditProductoComponent } from './components/productos/edit-producto/edit-producto.component';
 import { ShowProductoComponent } from './components/productos/show-producto/show-producto.component';
-import { CarritoComponent } from './components/carrito/carrito.component';
-import { PedidosComponent } from './components/perfil/pedidos/pedidos.component';
 import { RatingModule } from 'ng-starrating';
-import { ReviewsComponent } from './components/perfil/reviews/reviews.component';
-import { TerminosCondicionesComponent } from './components/static/terminos-condiciones/terminos-condiciones.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -41,14 +35,8 @@ import { RecuperarPassComponent } from './components/recuperar-pass/recuperar-pa
     FooterComponent,
     LoginComponent,
     CuentaComponent,
-    DireccionesComponent,
     IndexProductoComponent,
-    EditProductoComponent,
     ShowProductoComponent,
-    CarritoComponent,
-    PedidosComponent,
-    ReviewsComponent,
-    TerminosCondicionesComponent,
     NotfoundComponent,
     TokenComponent,
     RecuperarPassComponent

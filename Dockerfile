@@ -19,6 +19,10 @@ RUN npm run build --prod
 # Usa una imagen de servidor web para servir la aplicación
 FROM nginx:alpine
 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+RUN rm -rf /usr/share/nginx/html/*
+
 # Copia los archivos de construcción de la etapa anterior al directorio de Nginx
 COPY --from=build /app/dist/tienda /usr/share/nginx/html
 

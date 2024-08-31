@@ -17,10 +17,7 @@ declare function slickConfig():any;
 })
 export class ShowProductoComponent implements OnInit {
 
-  //GEO
-  public geo : any = {};
-  public country = '';
-  public currency = 'PEN';
+  public currency = 'MXN';
   public user_lc : any = undefined;
   public token :any = '';
 
@@ -62,11 +59,6 @@ export class ShowProductoComponent implements OnInit {
     this.token = localStorage.getItem('token');
     this.url = GLOBAL.url;
 
-    let lc_geo :any= localStorage.getItem('geo');
-    this.geo = JSON.parse(lc_geo);
-    this.country = this.geo.country_name;
-    this.currency = this.geo.currency;
-
   }
 
   ngOnInit(): void {
@@ -98,12 +90,6 @@ export class ShowProductoComponent implements OnInit {
                 productLightbox();
                 slickConfig();
               }, 100);
-
-              this._guestService.obtener_reviews_producto_publico(this.producto._id).subscribe(
-                response=>{
-                  this.reviews = response.data;
-                }
-              );
 
 
               /* this._guestService.listar_productos_recomendados_publico(this.producto.categoria).subscribe(
