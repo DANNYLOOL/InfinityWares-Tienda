@@ -14,9 +14,7 @@ declare function stickyHeader(): any;
 })
 export class NavComponent implements OnInit {
 
-  public geo: any = {};
-  public country = '';
-  public currency = 'PEN';
+  public currency = 'MXN';
   public token = localStorage.getItem('token');
 
   public categorias: Array<any> = [];
@@ -38,11 +36,6 @@ export class NavComponent implements OnInit {
     setTimeout(() => {
       stickyHeader();
     }, 50);
-
-    let lc_geo: any = localStorage.getItem('geo');
-    this.geo = JSON.parse(lc_geo);
-    this.country = this.geo.country_name;
-    this.currency = this.geo.currency;
 
     if (this.token) {
       let obj_lc: any = localStorage.getItem('user_data');
@@ -151,26 +144,26 @@ export class NavComponent implements OnInit {
   calcular_carrito() {
     this.subtotal = 0;
     if (this.user_lc != undefined) {
-      if (this.currency == 'PEN') {
+      if (this.currency == 'MXN') {
         this.carrito_arr.forEach(element => {
           let sub_precio = parseInt(element.producto.precio) * element.cantidad;
           this.subtotal = this.subtotal + sub_precio;
         });
       } else {
         this.carrito_arr.forEach(element => {
-          let sub_precio = parseInt(element.producto.precio_dolar) * element.cantidad;
+          let sub_precio = parseInt(element.producto.precio) * element.cantidad;
           this.subtotal = this.subtotal + sub_precio;
         });
       }
     } else if (this.user_lc == undefined) {
-      if (this.currency == 'PEN') {
+      if (this.currency == 'MXN') {
         this.carrito_logout.forEach(element => {
           let sub_precio = parseInt(element.producto.precio) * element.cantidad;
           this.subtotal = this.subtotal + sub_precio;
         });
       } else {
         this.carrito_logout.forEach(element => {
-          let sub_precio = parseInt(element.producto.precio_dolar) * element.cantidad;
+          let sub_precio = parseInt(element.producto.precio) * element.cantidad;
           this.subtotal = this.subtotal + sub_precio;
         });
       }
@@ -182,7 +175,7 @@ export class NavComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('_id');
     localStorage.removeItem('user_data');
-    this._router.navigate(['/']).then(() => {
+    this._router.navigate(['/login']).then(() => {
       window.location.reload();
     });
   }
@@ -202,11 +195,11 @@ export class NavComponent implements OnInit {
     if (this.carrito_logout.length >= 1) {
       localStorage.setItem('cart', JSON.stringify(this.carrito_logout));
     }
-    if (this.currency == 'PEN') {
+    if (this.currency == 'MXN') {
       let monto = item.producto.precio * item.cantidad;
       this.subtotal = this.subtotal - monto;
-    } else if (this.currency != 'PEN') {
-      let monto = item.producto.precio_dolar * item.cantidad;
+    } else if (this.currency != 'MXN') {
+      let monto = item.producto.precio * item.cantidad;
       this.subtotal = this.subtotal - monto;
     }
   }

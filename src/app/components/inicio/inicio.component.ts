@@ -10,9 +10,7 @@ declare function navigateCarousel():any;
 })
 export class InicioComponent implements OnInit {
 
-  public geo : any = {};
-  public country = '';
-  public currency = 'PEN';
+  public currency = 'MXN';
 
   public mas_vendidos : Array<any> = [];
   public producto_destacado_uno :any = null;
@@ -25,11 +23,7 @@ export class InicioComponent implements OnInit {
 
   constructor(
     private _guestService:GuestService
-  ) { 
-    let lc_geo :any= localStorage.getItem('geo');
-    this.geo = JSON.parse(lc_geo);
-    this.country = this.geo.country_name;
-    this.currency = this.geo.currency;
+  ) {
   }
 
   ngOnInit(): void {

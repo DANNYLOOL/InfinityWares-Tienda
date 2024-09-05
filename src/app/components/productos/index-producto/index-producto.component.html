@@ -96,17 +96,17 @@
                 <div class="ps-product__content"><a class="ps-product__title" [routerLink]="['/productos/'+item.producto.slug]" >{{item.producto.titulo}}</a>
                   
                   <p class="ps-product__price">
-                    <ng-container *ngIf="currency != 'PEN'">
-                      <span class="text-danger mr-3" *ngIf="item.producto.precio_antes_dolares >= 1">
-                        <del>${{item.producto.precio_antes_dolares}}</del>
+                    <ng-container *ngIf="currency != 'MXN'">
+                      <span class="text-danger mr-3" *ngIf="item.producto.precio_antes >= 1">
+                        <del>${{item.producto.precio_antes}}</del>
                       </span>
-                      <span><b>${{item.producto.precio_dolar}}</b></span>
+                      <span><b>${{item.producto.precio}}</b></span>
                     </ng-container>
-                    <ng-container *ngIf="currency == 'PEN'">
-                      <span class="text-danger mr-3" *ngIf="item.producto.precio_antes_soles >= 1">
-                        <del>S/{{item.producto.precio_antes_soles}}</del>
+                    <ng-container *ngIf="currency == 'MXN'">
+                      <span class="text-danger mr-3" *ngIf="item.producto.precio_antes >= 1">
+                        <del>MXN{{item.producto.precio_antes}}</del>
                       </span>
-                      <span><b>S/{{item.producto.precio}}</b></span>
+                      <span><b>MXN{{item.producto.precio}}</b></span>
                     </ng-container>
                   </p>
                 </div>
@@ -155,7 +155,7 @@
                         <img class="ps-product__image" [src]="url +'obtener_portada/'+item.portada" alt=""/>
                         <img class="ps-product__image-alt" [src]="url +'obtener_portada/'+item.galeria[0].imagen" alt=""/>
                         <a class="ps-product__overlay" [routerLink]="['/productos/'+item.slug]" ></a>
-                        <span class="ps-badge ps-badge--hot" *ngIf="item.precio_antes_dolares >= 1 || item.precio_antes_soles >= 1">¡OFERTA!</span>
+                        <span class="ps-badge ps-badge--hot" *ngIf="item.precio_antes >= 1 || item.precio_antes >= 1">¡OFERTA!</span>
                         
                       </div>
                       <div class="ps-product__content"><a class="ps-product__title"[routerLink]="['/productos/'+item.slug]" >{{item.titulo}}</a>
@@ -165,17 +165,17 @@
                                   <span><i class="text-warning fa fa-star"></i></span>
                                   <span><i class="text-warning fa fa-star"></i></span>
                         <p class="ps-product__price">
-                          <ng-container *ngIf="currency != 'PEN'">         
-                            <span class=" mr-3"><b>${{item.precio_dolar}}</b></span>
-                            <span class="text-danger" *ngIf="item.precio_antes_dolares >= 1">
-                              <del>${{item.precio_antes_dolares}}</del>
+                          <ng-container *ngIf="currency != 'MXN'">         
+                            <span class=" mr-3"><b>${{item.precio}}</b></span>
+                            <span class="text-danger" *ngIf="item.precio_antes >= 1">
+                              <del>${{item.precio_antes}}</del>
                             </span>
                           </ng-container>
-                          <ng-container *ngIf="currency == 'PEN'">
+                          <ng-container *ngIf="currency == 'MXN'">
                             
-                            <span class=" mr-3"><b>S/{{item.precio}}</b></span>
-                            <span class="text-danger" *ngIf="item.precio_antes_soles >= 1">
-                              <del>S/{{item.precio_antes_soles}}</del>
+                            <span class=" mr-3"><b>MXN{{item.precio}}</b></span>
+                            <span class="text-danger" *ngIf="item.precio_antes >= 1">
+                              <del>MXN{{item.precio_antes}}</del>
                             </span>
                           </ng-container>
                         </p>
@@ -183,7 +183,7 @@
                     </div>
                   </div>
                 </ng-container>
-                <ng-container *ngIf="currency == 'PEN'">
+                <ng-container *ngIf="currency == 'MXN'">
                   <ng-container *ngIf="item.visibilidad == 'Peru'">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 " >
                       <div class="ps-product">
@@ -191,7 +191,7 @@
                           <img class="ps-product__image" [src]="url +'obtener_portada/'+item.portada" alt=""/>
                           <img class="ps-product__image-alt" [src]="url +'obtener_portada/'+item.galeria[0].imagen" alt=""/>
                           <a class="ps-product__overlay"  [routerLink]="['/productos/'+item.slug]"></a>
-                          <span class="ps-badge ps-badge--hot" *ngIf="item.precio_antes_dolares >= 1 || item.precio_antes_soles >= 1">¡OFERTA!</span>
+                          <span class="ps-badge ps-badge--hot" *ngIf="item.precio_antes >= 1 || item.precio_antes >= 1">¡OFERTA!</span>
                           
                         </div>
                         <div class="ps-product__content"><a class="ps-product__title"[routerLink]="['/productos/'+item.slug]" >{{item.titulo}}</a>
@@ -201,17 +201,17 @@
                                     <span><i class="text-warning fa fa-star"></i></span>
                                     <span><i class="text-warning fa fa-star"></i></span>
                           <p class="ps-product__price">
-                            <ng-container *ngIf="currency != 'PEN'">         
-                              <span class=" mr-3"><b>${{item.precio_dolar}}</b></span>
-                              <span class="text-danger" *ngIf="item.precio_antes_dolares >= 1">
-                                <del>${{item.precio_antes_dolares}}</del>
+                            <ng-container *ngIf="currency != 'MXN'">         
+                              <span class=" mr-3"><b>${{item.precio}}</b></span>
+                              <span class="text-danger" *ngIf="item.precio_antes >= 1">
+                                <del>${{item.precio_antes}}</del>
                               </span>
                             </ng-container>
-                            <ng-container *ngIf="currency == 'PEN'">
+                            <ng-container *ngIf="currency == 'MXN'">
                               
-                              <span class=" mr-3"><b>S/{{item.precio}}</b></span>
-                              <span class="text-danger" *ngIf="item.precio_antes_soles >= 1">
-                                <del>S/{{item.precio_antes_soles}}</del>
+                              <span class=" mr-3"><b>MXN{{item.precio}}</b></span>
+                              <span class="text-danger" *ngIf="item.precio_antes >= 1">
+                                <del>MXN{{item.precio_antes}}</del>
                               </span>
                             </ng-container>
                           </p>
@@ -220,7 +220,7 @@
                     </div>
                   </ng-container>
                 </ng-container>
-                <ng-container *ngIf="currency != 'PEN'">
+                <ng-container *ngIf="currency != 'MXN'">
                   <ng-container *ngIf="item.visibilidad == 'Exterior'">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 " >
                       <div class="ps-product">
@@ -228,7 +228,7 @@
                           <img class="ps-product__image" [src]="url +'obtener_portada/'+item.portada" alt=""/>
                           <img class="ps-product__image-alt" [src]="url +'obtener_portada/'+item.galeria[0].imagen" alt=""/>
                           <a class="ps-product__overlay"  [routerLink]="['/productos/'+item.slug]"></a>
-                          <span class="ps-badge ps-badge--hot" *ngIf="item.precio_antes_dolares >= 1 || item.precio_antes_soles >= 1">¡OFERTA!</span>
+                          <span class="ps-badge ps-badge--hot" *ngIf="item.precio_antes >= 1 || item.precio_antes >= 1">¡OFERTA!</span>
                           
                         </div>
                         <div class="ps-product__content"><a class="ps-product__title"[routerLink]="['/productos/'+item.slug]" >{{item.titulo}}</a>
@@ -238,17 +238,17 @@
                                     <span><i class="text-warning fa fa-star"></i></span>
                                     <span><i class="text-warning fa fa-star"></i></span>
                           <p class="ps-product__price">
-                            <ng-container *ngIf="currency != 'PEN'">         
-                              <span class=" mr-3"><b>${{item.precio_dolar}}</b></span>
-                              <span class="text-danger" *ngIf="item.precio_antes_dolares >= 1">
-                                <del>${{item.precio_antes_dolares}}</del>
+                            <ng-container *ngIf="currency != 'MXN'">         
+                              <span class=" mr-3"><b>${{item.precio}}</b></span>
+                              <span class="text-danger" *ngIf="item.precio_antes >= 1">
+                                <del>${{item.precio_antes}}</del>
                               </span>
                             </ng-container>
-                            <ng-container *ngIf="currency == 'PEN'">
+                            <ng-container *ngIf="currency == 'MXN'">
                               
-                              <span class=" mr-3"><b>S/{{item.precio}}</b></span>
-                              <span class="text-danger" *ngIf="item.precio_antes_soles >= 1">
-                                <del>S/{{item.precio_antes_soles}}</del>
+                              <span class=" mr-3"><b>MXN{{item.precio}}</b></span>
+                              <span class="text-danger" *ngIf="item.precio_antes >= 1">
+                                <del>MXN{{item.precio_antes}}</del>
                               </span>
                             </ng-container>
                           </p>

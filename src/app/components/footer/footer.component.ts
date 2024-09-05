@@ -10,11 +10,6 @@ import { GuestService } from 'src/app/services/guest.service';
 })
 export class FooterComponent implements OnInit {
 
-  public config_global : any = {};
-
-  public geo : any = {};
-  public country = '';
-  public currency = 'PEN';
   public categorias :Array<any> = [];
   public activeLang = 'es';
 
@@ -24,10 +19,6 @@ export class FooterComponent implements OnInit {
     private translate: TranslateService,
     private _guestService:GuestService
   ) { 
-    let lc_geo :any= localStorage.getItem('geo');
-    this.geo = JSON.parse(lc_geo);
-    this.country = this.geo.country_name;
-    this.currency = this.geo.currency;
     this.translate.setDefaultLang(this.activeLang);
   }
 

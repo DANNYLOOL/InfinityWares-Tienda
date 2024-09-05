@@ -32,17 +32,17 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]],
       telefono: ['', [Validators.required]],
       f_nacimiento: ['', Validators.required],
-      recaptcha: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
     if (this.token) {
       this._router.navigate(['/']);
+    } else {
+      localStorage.removeItem('cart');
+      localStorage.removeItem('_id');
+      localStorage.removeItem('user_data');
     }
-    localStorage.removeItem('cart');
-    localStorage.removeItem('_id');
-    localStorage.removeItem('user_data');
   }
 
   changeOp(op: any) {
@@ -187,9 +187,13 @@ export class LoginComponent implements OnInit {
                 position: 'topRight',
                 message: 'Se registró correctamente.'
               });
-              setTimeout(() => {
-                location.reload();
-              }, 1000);
+              this.registroForm.reset();
+              window.scroll({ 
+                top: 0, 
+                left: 0, 
+                behavior: 'smooth' 
+              });
+              this.changeOp(1);
             } else {
               iziToast.show({
                 title: 'ERROR',
